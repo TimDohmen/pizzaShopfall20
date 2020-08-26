@@ -11,6 +11,7 @@ function _drawPizzas() {
 export default class PizzasController {
   constructor() {
     console.log("pizza controller!")
+    _drawPizzas()
   }
   createPizza(event) {
     event.preventDefault()
@@ -20,6 +21,11 @@ export default class PizzasController {
       name: event.target.name.value
     }
     _pizzaServ.createPizza(newPizza)
+    _drawPizzas()
+  }
+  deletePizza(id) {
+    console.log(id)
+    _pizzaServ.deletePizza(id)
     _drawPizzas()
   }
 }

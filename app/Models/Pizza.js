@@ -8,8 +8,10 @@ export default class Pizza {
   get Template() {
     return /*html*/`
     <div class="card col-3">
-                <div class="card-body">
-                    <h4 class="card-title">${this.name}</h4>
+                <div class="card-body d-flex flex-column">
+                <i class="fa fa-trash align-self-end action" aria-hidden="true" onclick="app.pizzasController.deletePizza('${this.id}')"></i>
+                    <h4 class="card-title">${this.name} </h4>
+                    
                     <ul>
                         <li>Cheese</li>
                         <li>Pepperoni</li>
