@@ -1,4 +1,4 @@
-import _pizzaServ from "../Services/PizzaServie.js"
+import _pizzaServ from "../Services/PizzaService.js"
 import STORE from "../store.js"
 
 
@@ -22,11 +22,13 @@ export default class PizzasController {
     }
     _pizzaServ.createPizza(newPizza)
     _drawPizzas()
+    STORE.saveState()
   }
   deletePizza(id) {
     console.log(id)
     _pizzaServ.deletePizza(id)
     _drawPizzas()
+    STORE.saveState()
   }
   addTopping(event, id) {
     event.preventDefault()
@@ -34,10 +36,12 @@ export default class PizzasController {
     let toppingToAdd = event.target.topping.value
     _pizzaServ.addTopping(id, toppingToAdd)
     _drawPizzas()
+    STORE.saveState()
   }
   deleteTopping(tName, pizzaId) {
     console.log(tName, pizzaId)
     _pizzaServ.deleteTopping(tName, pizzaId)
     _drawPizzas()
+    STORE.saveState()
   }
 }

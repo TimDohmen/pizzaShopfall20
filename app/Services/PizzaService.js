@@ -1,11 +1,8 @@
 import STORE from "../store.js";
 import Pizza from "../Models/Pizza.js";
 class PizzasService {
-
-
-
   constructor() {
-    console.log("pizz serv");
+    console.log("pizza service");
     console.log(STORE.State.pizzas)
   }
   createPizza(pizzaName) {
