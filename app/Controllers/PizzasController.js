@@ -28,4 +28,16 @@ export default class PizzasController {
     _pizzaServ.deletePizza(id)
     _drawPizzas()
   }
+  addTopping(event, id) {
+    event.preventDefault()
+    console.log(id)
+    let toppingToAdd = event.target.topping.value
+    _pizzaServ.addTopping(id, toppingToAdd)
+    _drawPizzas()
+  }
+  deleteTopping(tName, pizzaId) {
+    console.log(tName, pizzaId)
+    _pizzaServ.deleteTopping(tName, pizzaId)
+    _drawPizzas()
+  }
 }

@@ -2,6 +2,8 @@ import STORE from "../store.js";
 import Pizza from "../Models/Pizza.js";
 class PizzasService {
 
+
+
   constructor() {
     console.log("pizz serv");
     console.log(STORE.State.pizzas)
@@ -13,6 +15,16 @@ class PizzasService {
   }
   deletePizza(id) {
     STORE.State.pizzas = STORE.State.pizzas.filter(p => p.id != id)
+  }
+  addTopping(id, toppingToAdd) {
+    let pizza = STORE.State.pizzas.find(p => p.id == id)
+    pizza.toppings.push(toppingToAdd)
+  }
+  deleteTopping(tName, pizzaId) {
+    let pizza = STORE.State.pizzas.find(p => p.id == pizzaId)
+    let toppingIndex = pizza.toppings.findIndex(t => t == tName)
+    pizza.toppings.splice(toppingIndex, 1)
+
   }
 }
 const PIZZA_SERVICE = new PizzasService();
